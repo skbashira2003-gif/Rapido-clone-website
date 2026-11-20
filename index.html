@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapido - India's #1 Ride Hailing App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fff;
+            padding: 18px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            font-weight: 800;
+            color: #f9c900 !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #222;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #e5b500;
+        }
+
+        .download-btn {
+            background: #f9c900;
+            color: #111;
+            border-radius: 30px;
+            padding: 11px 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            background: #fff9dc;
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: #e5b500;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .hero img {
+            width: 100%;
+            max-height: 440px;
+            object-fit: contain;
+        }
+
+        /* Common headings */
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #e5b500;
+        }
+
+        /* Services */
+        .services {
+            padding: 85px 0;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 20px 10px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card img {
+            width: 140px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 18px;
+        }
+
+        .service-card h5 {
+            font-weight: bold;
+        }
+
+        /* Offers */
+        .offers {
+            background: #fff9dc;
+            padding: 85px 0;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .offer-card img {
+            width: 150px;
+            height: 135px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .offer-card h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .offer-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Showcase */
+        .showcase {
+            padding: 80px 0;
+        }
+
+        .showcase img {
+            width: 100%;
+            max-height: 430px;
+            object-fit: contain;
+        }
+
+        .showcase h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .showcase p {
+            font-size: 19px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Captain */
+        .captain {
+            background: #fff5c7;
+            padding: 70px 0;
+        }
+
+        .captain h2 {
+            font-size: 42px;
+            font-weight: 800;
+        }
+
+        .captain p {
+            font-size: 19px;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        .captain img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+        }
+
+        /* Download */
+        .download {
+            padding: 85px 0;
+        }
+
+        .app-card {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .app-card img {
+            width: 100%;
+            max-width: 280px;
+            height: 220px;
+            object-fit: contain;
+        }
+
+        .app-card h5 {
+            font-size: 23px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .store-badge {
+            width: 145px !important;
+            height: auto !important;
+            margin: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #171717;
+            color: white;
+            padding: 55px 0 20px;
+        }
+
+        footer h3 {
+            color: #f9c900;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        footer h5 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        footer a:hover {
+            color: #f9c900;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 35px;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .hero {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero img {
+                margin-top: 30px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .showcase {
+                text-align: center;
+            }
+
+            .showcase h2,
+            .captain h2 {
+                font-size: 32px;
+            }
+
+            .captain {
+                text-align: center;
+            }
+
+            .navbar-nav {
+                padding-top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="#">Rapido</a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#safety">Safety</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#careers">Careers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#blog">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#press">Press</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#download" class="download-btn">Download App</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h1>
+                    India's #1 <br>
+                    Ride-hailing <span>App</span>
+                </h1>
+
+                <p>
+                    Quick, Affordable rides at your doorstep.
+                    Travel comfortably with Rapido.
+                </p>
+
+                <a href="#download" class="download-btn d-inline-block mt-3">
+                    Download Now
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://content-cus.rapido.bike/image/banner_image_new.png"
+                    alt="Rapido Ride Banner">
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- SERVICES SECTION -->
+<section class="services" id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Our <span>Services</span>
+        </h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/serviceimage.svg" alt="Bike">
+                    <h5>Bike</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/auto_service.png" alt="Auto">
+                    <h5>Auto</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/cab_service.png" alt="Cab">
+                    <h5>Cab</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/parcel_service.png" alt="Parcel">
+                    <h5>Parcel</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/travel_service.png" alt="Travel">
+                    <h5>Travel</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="service-card">
+                    <img src="https://content-cus.rapido.bike/image/metro_service.png" alt="Metro">
+                    <h5>Metro</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- WHAT WE OFFER -->
+<section class="offers" id="safety">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            What We <span>Offer</span>
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="offer-card">
+
+                    <img src="https://content-cus.rapido.bike/image/image.png"
+                        alt="Quick Pickup">
+
+                    <h4>Quick Pickup</h4>
+
+                    <p>
+                        Pickups within minutes that help you save time
+                        on every ride. A Rapido is always nearby when
+                        you need to get moving.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="offer-card">
+
+                    <img src="https://content-cus.rapido.bike/image/bestfare_offer.png"
+                        alt="Best Fares">
+
+                    <h4>Best Fares</h4>
+
+                    <p>
+                        Affordable prices designed for everyday rides.
+                        Travel more, spend less without compromising
+                        on comfort.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="offer-card">
+
+                    <img src="https://content-cus.rapido.bike/image/nevertofar_offer.png"
+                        alt="Never Too Far">
+
+                    <h4>Never Too Far</h4>
+
+                    <p>
+                        Present across 400+ cities and counting.
+                        Wherever you go, find a Rapido ride close by.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- SHOWCASE -->
+<section class="showcase" id="blog">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://content-cus.rapido.bike/image/showcase_image.png"
+                    alt="Rapido Showcase">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <h2>
+                    Ride with <span style="color:#e5b500">Rapido</span>
+                </h2>
+
+                <p>
+                    Experience a convenient and affordable way
+                    to travel. Rapido makes everyday journeys
+                    simple, quick and comfortable.
+                </p>
+
+                <a href="#download" class="download-btn d-inline-block mt-3">
+                    Explore More
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- EARN WITH RAPIDO -->
+<section class="captain" id="careers">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h2>
+                    Earn with <span style="color:#d5a900">Rapido</span>
+                </h2>
+
+                <p>
+                    Become a Rapido Captain. Ride when you want,
+                    work how you want, and earn on your own terms.
+                </p>
+
+                <a href="#download" class="download-btn d-inline-block mt-3">
+                    Join as Captain
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://content-cus.rapido.bike/image/rapido_captain.png"
+                    alt="Rapido Captain">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DOWNLOAD SECTION -->
+<section class="download" id="download">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Download <span>Now</span>
+        </h2>
+
+        <div class="row justify-content-center">
+
+            <!-- Customer App -->
+            <div class="col-md-5">
+
+                <div class="app-card">
+
+                    <img
+                        src="https://content-cus.rapido.bike/image/dowloadnow_image.svg"
+                        alt="Customer App">
+
+                    <h5>Customer App</h5>
+
+                    <a href="https://play.google.com/store/search?q=rapido&c=apps"
+                       target="_blank">
+                        <img class="store-badge"
+                            src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/3840px-Google_Play_Store_badge_EN.svg.png"
+                            alt="Google Play">
+                    </a>
+
+                    <a href="https://www.apple.com/app-store/"
+                       target="_blank">
+                        <img class="store-badge"
+                            src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png"
+                            alt="App Store">
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Captain App -->
+            <div class="col-md-5">
+
+                <div class="app-card">
+
+                    <img
+                        src="https://content-cus.rapido.bike/image/rapido_captain.png"
+                        alt="Captain App">
+
+                    <h5>Captain App</h5>
+
+                    <a href="https://play.google.com/store/search?q=rapido%20captain&c=apps"
+                       target="_blank">
+                        <img class="store-badge"
+                            src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/3840px-Google_Play_Store_badge_EN.svg.png"
+                            alt="Google Play">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer id="contact">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+
+                <h3>Rapido</h3>
+
+                <p class="mt-3" style="color:#ccc">
+                    India's #1 Ride-hailing App.
+                    Quick and affordable rides at your doorstep.
+                </p>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h5>Quick Links</h5>
+
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#safety">Safety</a>
+                <a href="#careers">Careers</a>
+                <a href="#blog">Blog</a>
+                <a href="#press">Press</a>
+                <a href="#contact">Contact Us</a>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <h5>Important Links</h5>
+
+                <a href="#contact">Privacy Policy</a>
+                <a href="#contact">Customer Terms - Bike Taxi</a>
+                <a href="#contact">Customer Terms - Cab and Auto</a>
+                <a href="#contact">Corporate Affairs</a>
+                <a href="#contact">Captain Terms</a>
+
+            </div>
+
+
+            <div class="col-md-3" id="press">
+
+                <h5>Follow Us</h5>
+
+                <a href="https://www.instagram.com/rapido.bike/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/rapido4bike/" target="_blank">Facebook</a>
+                <a href="https://www.linkedin.com/company/rapido-bike/" target="_blank">LinkedIn</a>
+                <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Roppen Transportation. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
